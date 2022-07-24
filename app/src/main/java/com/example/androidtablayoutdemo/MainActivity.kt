@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setTabLayoutItemsSelectListener()
-
     }
 
     private fun setTabLayoutItemsSelectListener() {
@@ -24,16 +23,6 @@ class MainActivity : AppCompatActivity() {
         binding.testTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
-
-                if (tab == null) {
-                    return
-                }
-
-                Toast.makeText(
-                    this@MainActivity,
-                    "Tab selected${tab.text}",
-                    Toast.LENGTH_SHORT
-                ).show()
 
             }
 
@@ -44,9 +33,7 @@ class MainActivity : AppCompatActivity() {
             override fun onTabReselected(tab: TabLayout.Tab?) {
 
             }
-
         })
-
     }
 
 }
