@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">AndroidTabLayoutDemo</string>
 
+    <!-- fragments -->
     <string name="fragment_first">Fragment First</string>
     <string name="fragment_second">Fragment Second</string>
     <string name="fragment_third">Fragment Third</string>
+
+    <!-- tabs -->
+    <string name="first_tab_label">First tab</string>
+    <string name="second_tab_label">Second tab</string>
+    <string name="third_tab_label">Third tab</string>
 
 </resources>

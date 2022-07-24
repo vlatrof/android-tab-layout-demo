@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.androidtablayoutdemo.databinding.FragmentThirdBinding
 
-class FragmentThird : Fragment() {
+class FragmentThird : Fragment(R.layout.fragment_third) {
 
     private lateinit var binding: FragmentThirdBinding
 
