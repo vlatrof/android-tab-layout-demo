@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidTabLayoutDemo</string>
+
+    <string name="fragment_first">Fragment First</string>
+    <string name="fragment_second">Fragment Second</string>
+    <string name="fragment_third">Fragment Third</string>
+
 </resources>
