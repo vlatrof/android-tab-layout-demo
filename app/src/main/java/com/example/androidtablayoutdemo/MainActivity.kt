@@ -1,7 +1,6 @@
 package com.example.androidtablayoutdemo
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androidtablayoutdemo.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
