@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.androidtablayoutdemo.databinding.ActivityMainBinding
-import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,9 +15,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+        binding.vpFragmentContainer.adapter = VpAdapter(this, fragmentsList)
+        initMediator()
+
         setContentView(binding.root)
-        setTabLayoutItemsSelectListener()
-        selectDefaultTab()
+    }
+
+    private fun initMediator() {
+
+        TabLayoutMediator(binding.tlTest, binding.vpFragmentContainer) { tab, position ->
+            tab.text = resources.getStringArray(R.array.tabs_titles)[position]
+        }.attach()
 
     }
 
@@ -26,37 +34,5 @@ class MainActivity : AppCompatActivity() {
         FragmentSecond.newInstance(),
         FragmentThird.newInstance()
     )
-
-    private fun setTabLayoutItemsSelectListener() {
-
-        binding.testTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                tab ?: throw IllegalStateException("Tab is null")
-                setFragment(tab.position)
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-
-            }
-        })
-    }
-
-    private fun setFragment(position: Int) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container, fragmentsList[position])
-            .commit()
-    }
-
-    private fun selectDefaultTab() {
-        val tab = binding.testTabLayout.getTabAt(0)
-        tab ?: throw IllegalStateException("Tab is null")
-        setFragment(tab.position)
-    }
 
 }
